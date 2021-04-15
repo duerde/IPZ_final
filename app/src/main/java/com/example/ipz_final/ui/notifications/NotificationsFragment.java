@@ -26,9 +26,12 @@ import java.util.ArrayList;
 public class NotificationsFragment extends Fragment {
 
     BarChart barChartEko;
+    BarChart barChartKm;
     BarData barDataEko;
+    BarData barDataKm;
     BarDataSet barDataSetEko;
-    ArrayList barEntriesEko;
+    BarDataSet barDataSetKm;
+    ArrayList barEntriesRides;
 
     private NotificationsViewModel notificationsViewModel;
 
@@ -46,10 +49,21 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
+        //preparing data
+        SetData();
+
+        //barChart Kilometry
+        barChartKm=root.findViewById(R.id.BarChart1);
+        barDataSetKm = new BarDataSet(barEntriesRides, "labelkaKm");
+        barDataKm = new BarData(barDataSetKm);
+        barChartKm.setData(barDataKm);
+        barDataSetKm.setColors(ColorTemplate.LIBERTY_COLORS);
+        barDataSetKm.setValueTextColor(Color.BLACK);
+        barDataSetKm.setValueTextSize(12f);
+
         //barChart Eko
         barChartEko=root.findViewById(R.id.BarChart2);
-        SetData();
-        barDataSetEko = new BarDataSet(barEntriesEko, "labelka");
+        barDataSetEko = new BarDataSet(barEntriesRides, "labelkaEko");
         barDataEko = new BarData(barDataSetEko);
         barChartEko.setData(barDataEko);
         barDataSetEko.setColors(ColorTemplate.PASTEL_COLORS);
@@ -60,14 +74,14 @@ public class NotificationsFragment extends Fragment {
     }
 
     private void SetData(){
-        barEntriesEko = new ArrayList<>();
-        barEntriesEko.add(new BarEntry(2f,0));
-        barEntriesEko.add(new BarEntry(4f,1));
-        barEntriesEko.add(new BarEntry(7f,2));
-        barEntriesEko.add(new BarEntry(8f,3));
-        barEntriesEko.add(new BarEntry(1f,4));
-        barEntriesEko.add(new BarEntry(9f,5));
-        barEntriesEko.add(new BarEntry(6f,6));
+        barEntriesRides = new ArrayList<>();
+        barEntriesRides.add(new BarEntry(2f,0));
+        barEntriesRides.add(new BarEntry(4f,1));
+        barEntriesRides.add(new BarEntry(7f,2));
+        barEntriesRides.add(new BarEntry(8f,3));
+        barEntriesRides.add(new BarEntry(1f,4));
+        barEntriesRides.add(new BarEntry(9f,5));
+        barEntriesRides.add(new BarEntry(6f,6));
     }
 
 }
