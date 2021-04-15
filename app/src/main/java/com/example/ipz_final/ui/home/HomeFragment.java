@@ -17,6 +17,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ipz_final.R;
 
+import java.lang.reflect.Field;
+
 public class HomeFragment extends Fragment {
     Context thiscontext;
     private HomeViewModel homeViewModel;
@@ -27,14 +29,8 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         Spinner spinner = (Spinner) root.findViewById(R.id.spinner);
+
 // Create an ArrayAdapter using the string array and a default spinner layout
         thiscontext = container.getContext();
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(thiscontext,
@@ -43,7 +39,76 @@ public class HomeFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
-
+        String[] arraySpinner = new String[] {
+                "Abarth",
+                "Alfa Romeo",
+                "Aston Martin",
+                "Audi",
+                "Bentley",
+                "BMW",
+                "Bugatti",
+                "Cadillac",
+                "Chevrolet",
+                "Chrysler",
+                "Citroën",
+                "Dacia",
+                "Daewoo",
+                "Daihatsu",
+                "Dodge",
+                "Donkervoort",
+                "DS",
+                "Ferrari",
+                "Fiat",
+                "Fisker",
+                "Ford",
+                "Honda",
+                "Hummer",
+                "Hyundai",
+                "Infiniti",
+                "Iveco",
+                "Jaguar",
+                "Jeep",
+                "Kia",
+                "KTM",
+                "Lada",
+                "Lamborghini",
+                "Lancia",
+                "Land Rover",
+                "Landwind",
+                "Lexus",
+                "Lotus",
+                "Maserati",
+                "Maybach",
+                "Mazda",
+                "McLaren",
+                "Mercedes-Benz",
+                "MG",
+                "Mini",
+                "Mitsubishi",
+                "Morgan",
+                "Nissan",
+                "Opel",
+                "Peugeot",
+                "Porsche",
+                "Renault",
+                "Rolls-Royce",
+                "Rover",
+                "Saab",
+                "Seat",
+                "Skoda",
+                "Smart",
+                "SsangYong",
+                "Subaru",
+                "Suzuki",
+                "Tesla",
+                "Toyota",
+                "Volkswagen",
+                "Volvo"
+        };
+        Spinner spinnermarki = (Spinner) root.findViewById(R.id.Spinner01);
+        ArrayAdapter<String> adaptermarki = new ArrayAdapter<String>(thiscontext, android.R.layout.simple_spinner_item, arraySpinner);
+        adaptermarki.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnermarki.setAdapter(adaptermarki);
 
         return root;
     }
