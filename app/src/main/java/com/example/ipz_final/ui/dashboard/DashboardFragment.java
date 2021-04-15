@@ -35,6 +35,7 @@ public class DashboardFragment extends Fragment {
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
+            @Override
             public void change(View view) {
                 final EditText et = root.findViewById(R.id.editTextTextPersonName2);
                 final EditText et1 = root.findViewById(R.id.editTextTextPersonName3);
