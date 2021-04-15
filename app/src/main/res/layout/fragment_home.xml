@@ -51,11 +51,12 @@
         android:gravity="center"
         android:text="Rok"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName7"
+        app:layout_constraintBottom_toBottomOf="@+id/picker_year"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName7" />
+        app:layout_constraintTop_toTopOf="@+id/picker_year"
+        app:layout_constraintVertical_bias="0.38" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -102,17 +103,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.155" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName7"
+    <NumberPicker
+        android:id="@+id/picker_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:descendantFocusability="blocksDescendants"
+        android:visibility="gone"
+        tools:ignore="RtlCompat">
+
+    </NumberPicker>
+
+    <NumberPicker
+        android:id="@+id/picker_year"
         android:layout_width="245dp"
         android:layout_height="50dp"
-        android:background="#E8E8E8"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.927"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.048" />
+        android:descendantFocusability="blocksDescendants"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="243dp">
+
+    </NumberPicker>
 </androidx.constraintlayout.widget.ConstraintLayout>
