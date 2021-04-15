@@ -35,17 +35,18 @@ public class DashboardFragment extends Fragment {
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
+            public void change(View view) {
+                final EditText et = root.findViewById(R.id.editTextTextPersonName2);
+                final EditText et1 = root.findViewById(R.id.editTextTextPersonName3);
+                String texxt = et1.getText().toString();
+                Editable numberr = et.getText();
+            }
 
         });
 
 
         return root;
     }
-    public void change(View view) {
-        final EditText et = (EditText)findViewById(R.id.editTextNumber);
-        EditText et1 = root.findViewById(R.id.editTextNumber2);
-        String texxt = et1.getText().toString();
-        Editable numberr = et.getText();
-    }
+
 
 }
