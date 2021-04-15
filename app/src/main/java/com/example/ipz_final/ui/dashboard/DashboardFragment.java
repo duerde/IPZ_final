@@ -41,11 +41,5 @@ public class DashboardFragment extends Fragment {
 
         return root;
     }
-    public void change(View view) {
-        final EditText et = (EditText)findViewById(R.id.editTextNumber);
-        EditText et1 = root.findViewById(R.id.editTextNumber2);
-        String texxt = et1.getText().toString();
-        Editable numberr = et.getText();
-    }
 
 }
