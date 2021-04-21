@@ -3,6 +3,8 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="przebyte_kilometry">Przebyte kilometry</string>
+    <string name="zu_ycie_co2">Zużycie CO2</string>
     <string-array name="paliwo">
         <item>Gaz</item>
         <item>Diesel</item>

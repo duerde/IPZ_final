@@ -82,9 +82,7 @@ public class NotificationsFragment extends Fragment {
         barEntriesRides.add(new BarEntry(4f,1));
         barEntriesRides.add(new BarEntry(7f,2));
         barEntriesRides.add(new BarEntry(8f,3));
-        barEntriesRides.add(new BarEntry(1f,4));
-        barEntriesRides.add(new BarEntry(9f,5));
-        barEntriesRides.add(new BarEntry(6f,6));
+
     }
 
 }
