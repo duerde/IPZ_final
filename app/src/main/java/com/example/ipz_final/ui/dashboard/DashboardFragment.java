@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -20,8 +21,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ipz_final.R;
 
-public class DashboardFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
 
+public class DashboardFragment extends Fragment {
+    EditText editTextNumber, editTextNumber2;
+    TextView textView, textView2;
+    String kwartal, km;
+    //List listakm = new ArrayList(4);
+    Float[] listakm = new Float[4];
     private DashboardViewModel dashboardViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -30,23 +38,37 @@ public class DashboardFragment extends Fragment {
                 new ViewModelProvider(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
         final TextView textView = root.findViewById(R.id.textView);
+        editTextNumber = root.findViewById(R.id.editTextNumber);
+        editTextNumber2 = root.findViewById(R.id.editTextNumber2);
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
-            public void change(View view) {
-                final EditText et = root.findViewById(R.id.editTextTextPersonName2);
-                final EditText et1 = root.findViewById(R.id.editTextTextPersonName3);
-                String texxt = et1.getText().toString();
-                Editable numberr = et.getText();
-            }
 
         });
 
+        final Button button = root.findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                kwartal = editTextNumber.getText().toString();
+                km = editTextNumber2.getText().toString();
+                float kmValue = Float.parseFloat(km);
+                if(kwartal == "1") {
+                     listakm[0] += kmValue;
+                } else if (kwartal == "2") {
+                    listakm[1] += kmValue;
+                } else if (kwartal == "3") {
+                    listakm[2] += kmValue;
+                } else if (kwartal == "4") {
+                    listakm[3] += kmValue;
+                }
+            }
+        });
 
         return root;
     }
+
 
 
 }
