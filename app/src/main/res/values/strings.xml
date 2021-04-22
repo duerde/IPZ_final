@@ -12,7 +12,9 @@
         <item>Benzyna</item>
         <item>Elektryczny</item>
     </string-array>
-
+    <string-array name="samochod">
+        <item></item>
+    </string-array>
 
 
 

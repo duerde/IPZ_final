@@ -1,13 +1,20 @@
 package com.example.ipz_final.ui.home;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,12 +24,16 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ipz_final.R;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class HomeFragment extends Fragment {
     Context thiscontext;
     private HomeViewModel homeViewModel;
-
+    ArrayList<String[ ] > samochodylista = new ArrayList<String[ ] >();
     private void SpinnerHeight(Spinner spinner) {
         try {
             Field popup = Spinner.class.getDeclaredField("mPopup");
@@ -130,6 +141,23 @@ public class HomeFragment extends Fragment {
 
         spinnermarki.setAdapter(adaptermarki);
         SpinnerHeight(spinnermarki);
+
+        final Button button = root.findViewById(R.id.button2);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String marka = (String) spinnermarki.getSelectedItem();
+                EditText modeltext = root.findViewById(R.id.modeltext);
+                String model = modeltext.getText().toString();
+                String paliwo = (String) spinner.getSelectedItem();
+                EditText rok = root.findViewById(R.id.picker_year);
+                String year = rok.getText().toString();
+                String dane[] = {marka,model,paliwo,year};
+                samochodylista.add(dane);
+                for (String i[] : samochodylista) {
+                    System.out.println(Arrays.toString(i));
+                }
+            }
+        });
         return root;
     }
 
