@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.ipz_final.ui.home.HomeFragment;
-
+import com.example.ipz_final.ui.dashboard.DashboardFragment;
 
 //barcharts
 import com.example.ipz_final.R;
@@ -97,11 +97,36 @@ public class NotificationsFragment extends Fragment {
         barEntriesRides.add(new BarEntry(3,250));
         barEntriesRides.add(new BarEntry(4,30));
     }
+
+
     private void SetDataEko(){
         barEntriesEko = new ArrayList<>();
+        float emisja;
+
         //odwołanie do listy Karoliny
+        DashboardFragment listakm;
         //odwołanie do listy Daniela
+        HomeFragment paliwo;
+        HomeFragment spalanie;   //czy w litrach/km ?
+
+        /*
         //pętla z obliczeniami i dodawanie entries
+        for(int i=0; i<4; i++){
+            switch (paliwo) {
+                case "Diesel":
+                    emisja = spalanie * 2.6 * listakm[i];
+                case "Gaz":
+                    emisja = spalanie * 1.7 * listakm[i];
+                case "Benzyna":
+                    emisja = spalanie * 2.35 * listakm[i];
+                case "Hybryda":
+                    emisja = 0.142 * listakm[i];
+                case "Elektyczny":
+                    emisja = 0.033 * listakm[i];
+            }
+            barEntriesEko.add(new BarEntry(i+1, emisja));
+         */
+        }
+
     }
 
-}
