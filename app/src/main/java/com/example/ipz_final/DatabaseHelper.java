@@ -1,0 +1,51 @@
+package com.example.ipz_final;
+
+import android.content.Context;
+import android.database.DatabaseUtils;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class DatabaseHelper extends SQLiteOpenHelper {
+
+    // Table Name
+    public static final String TABLE_NAME = "auta";
+
+    // Table columns
+    public static final String _ID = "_id";
+    public static final String marka = "marka";
+    public static final String model = "model";
+    public static final String paliwo = "paliwo";
+    public static final String rok = "rok";
+    public static final String spalanie = "spalanie";
+
+    // Database Information
+    static final String DB_NAME = "samochody.DB";
+
+    // database version
+    static final int DB_VERSION = 1;
+
+    // Creating table query
+    private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID
+            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + marka + " TEXT NOT NULL, " + model + " TEXT , " + paliwo +" TEXT NOT NULL , "+rok+" TEXT NOT NULL, "+spalanie+" REAL);";
+
+    public DatabaseHelper(Context context) {
+        super(context, DB_NAME, null, DB_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL(CREATE_TABLE);
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
+    }
+    public long getProfilesCount() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        long count = DatabaseUtils.queryNumEntries(db, TABLE_NAME);
+        db.close();
+        return count;
+    }
+}

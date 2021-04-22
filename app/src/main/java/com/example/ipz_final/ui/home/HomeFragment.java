@@ -2,6 +2,9 @@ package com.example.ipz_final.ui.home;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.DatabaseUtils;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -22,6 +25,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.ipz_final.DBManager;
+import com.example.ipz_final.DatabaseHelper;
 import com.example.ipz_final.R;
 
 import java.lang.reflect.Array;
@@ -30,7 +35,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.example.ipz_final.DatabaseHelper.TABLE_NAME;
+
 public class HomeFragment extends Fragment {
+    private DBManager dbManager;
     Context thiscontext;
     private HomeViewModel homeViewModel;
     ArrayList<String[ ] > samochodylista = new ArrayList<String[ ] >();
@@ -48,6 +56,8 @@ public class HomeFragment extends Fragment {
 // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
+        dbManager = new DBManager(thiscontext);
+        dbManager.open();
         spinner.setAdapter(adapter);
         String[] arraySpinner = new String[] {
                 "Abarth",
@@ -132,12 +142,24 @@ public class HomeFragment extends Fragment {
                 EditText rok = root.findViewById(R.id.picker_year);
                 String year = rok.getText().toString();
                 EditText spalanietext = root.findViewById(R.id.picker_year2);
-                float spalanie = Float.valueOf(spalanietext.getText().toString());
-                String dane[] = {marka,model,paliwo,year};
+                try {
+                    Double spalanie = Double.parseDouble(spalanietext.getText().toString());
+                } catch (Exception e1) {
+                    return;
+                }
+                float spalanie = Float.parseFloat(spalanietext.getText().toString());
+                String dane[] = {marka, model, paliwo, year};
                 samochodylista.add(dane);
                 for (String i[] : samochodylista) {
                     System.out.println(Arrays.toString(i));
                 }
+                dbManager.insert(marka, model, paliwo, year, spalanie);
+                Cursor c = dbManager.fetch();
+                for(int i = 0; i < dbManager.length();i++){
+                    System.out.println(c.getString(c.getColumnIndex("marka"))+ " "+c.getString((c.getColumnIndex("model"))));
+                    c.moveToNext();
+                }
+
             }
         });
         return root;
