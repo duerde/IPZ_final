@@ -21,11 +21,15 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ipz_final.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DashboardFragment extends Fragment {
     EditText editTextNumber, editTextNumber2;
     TextView textView, textView2;
     String kwartal, km;
-
+    //List listakm = new ArrayList(4);
+    Float[] listakm = new Float[4];
     private DashboardViewModel dashboardViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -49,10 +53,18 @@ public class DashboardFragment extends Fragment {
             public void onClick(View v) {
                 kwartal = editTextNumber.getText().toString();
                 km = editTextNumber2.getText().toString();
-                String data[] = {km, kwartal};
+                float kmValue = Float.parseFloat(km);
+                if(kwartal == "1") {
+                     listakm[0] += kmValue;
+                } else if (kwartal == "2") {
+                    listakm[1] += kmValue;
+                } else if (kwartal == "3") {
+                    listakm[2] += kmValue;
+                } else if (kwartal == "4") {
+                    listakm[3] += kmValue;
+                }
             }
-        }
-
+        });
 
         return root;
     }

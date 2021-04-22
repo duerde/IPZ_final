@@ -11,60 +11,57 @@
         android:layout_width="77dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
         android:gravity="center"
         android:text="Marka"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/Spinner01"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/Spinner01" />
 
     <TextView
         android:id="@+id/model"
         android:layout_width="77dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Model"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/modeltext"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/marka" />
+        app:layout_constraintTop_toTopOf="@+id/modeltext" />
 
     <TextView
         android:id="@+id/rodzajpaliwa"
         android:layout_width="77dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="Paliwo"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/spinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/model"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/spinner"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/rok"
         android:layout_width="77dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="32dp"
         android:gravity="center"
         android:text="Rok"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/picker_year"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rodzajpaliwa"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/picker_year"
+        app:layout_constraintVertical_bias="0.38" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="245dp"
         android:layout_height="50dp"
-        android:layout_marginTop="5dp"
         android:gravity="center"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -73,7 +70,8 @@
         app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.306" />
+        app:layout_constraintVertical_bias="0.255"
+        android:layout_marginStart="32dp"/>
 
     <Spinner
         android:id="@+id/Spinner01"
@@ -86,8 +84,47 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.903"
+        app:layout_constraintHorizontal_bias="0.927"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.063" />
+        app:layout_constraintVertical_bias="0.051" />
+
+    <EditText
+        android:id="@+id/modeltext"
+        android:layout_width="245dp"
+        android:layout_height="50dp"
+        android:background="#E8E8E8"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.789"
+        app:layout_constraintStart_toEndOf="@+id/model"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.155" />
+
+    <EditText
+        android:id="@+id/picker_year"
+        android:layout_width="245dp"
+        android:layout_height="50dp"
+        android:descendantFocusability="blocksDescendants"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.789"
+        app:layout_constraintStart_toEndOf="@+id/rok"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="0.052">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="253dp"
+        android:layout_height="48dp"
+        android:text="Dodaj"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.847" />
 </androidx.constraintlayout.widget.ConstraintLayout>

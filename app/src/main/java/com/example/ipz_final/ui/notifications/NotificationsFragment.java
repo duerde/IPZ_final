@@ -19,9 +19,11 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NotificationsFragment extends Fragment {
 
@@ -42,12 +44,15 @@ public class NotificationsFragment extends Fragment {
                 new ViewModelProvider(this).get(NotificationsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
         final TextView textView = root.findViewById(R.id.textView);
+        /*
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
-        });
+        }
+        );
+        */
 
         //preparing data
         SetData();
@@ -56,10 +61,19 @@ public class NotificationsFragment extends Fragment {
         barChartKm=root.findViewById(R.id.BarChart1);
         barDataSetKm = new BarDataSet(barEntriesRides, "labelkaKm");
         barDataKm = new BarData(barDataSetKm);
-        barChartKm.setData(barDataKm);
-        barDataSetKm.setColors(ColorTemplate.LIBERTY_COLORS);
+        barDataSetKm.setColors(ColorTemplate.COLORFUL_COLORS);
         barDataSetKm.setValueTextColor(Color.BLACK);
         barDataSetKm.setValueTextSize(12f);
+        ArrayList<String> labels= new ArrayList<String>();
+        labels.add("I");
+        labels.add("II");
+        labels.add("III");
+        labels.add("IV");
+        //barDataKm = new BarData(labels,barDataSetKm);
+        barChartKm.setData(barDataKm);
+        barChartKm.animateY(5000);
+
+
 
         //barChart Eko
         barChartEko=root.findViewById(R.id.BarChart2);
@@ -75,13 +89,14 @@ public class NotificationsFragment extends Fragment {
 
     private void SetData(){
         barEntriesRides = new ArrayList<>();
-        barEntriesRides.add(new BarEntry(2f,0));
-        barEntriesRides.add(new BarEntry(4f,1));
-        barEntriesRides.add(new BarEntry(7f,2));
-        barEntriesRides.add(new BarEntry(8f,3));
-        barEntriesRides.add(new BarEntry(1f,4));
-        barEntriesRides.add(new BarEntry(9f,5));
-        barEntriesRides.add(new BarEntry(6f,6));
+        barEntriesRides.add(new BarEntry(1,100));
+        barEntriesRides.add(new BarEntry(2,800));
+        barEntriesRides.add(new BarEntry(3,20));
+        barEntriesRides.add(new BarEntry(4,35));
+
+
+
+
     }
 
 }
