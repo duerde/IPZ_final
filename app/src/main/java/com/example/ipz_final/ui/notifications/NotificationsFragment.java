@@ -69,7 +69,7 @@ public class NotificationsFragment extends Fragment {
         labels.add("II");
         labels.add("III");
         labels.add("IV");
-        barDataSetKm = new BarData(labels,barDataSetKm);
+        //barDataKm = new BarData(labels,barDataSetKm);
         barChartKm.setData(barDataKm);
         barChartKm.animateY(5000);
 
@@ -89,10 +89,10 @@ public class NotificationsFragment extends Fragment {
 
     private void SetData(){
         barEntriesRides = new ArrayList<>();
-        barEntriesRides.add(new BarEntry(2f,0));
-        barEntriesRides.add(new BarEntry(4f,1));
-        barEntriesRides.add(new BarEntry(7f,2));
-        barEntriesRides.add(new BarEntry(8f,3));
+        barEntriesRides.add(new BarEntry(1,100));
+        barEntriesRides.add(new BarEntry(2,800));
+        barEntriesRides.add(new BarEntry(3,20));
+        barEntriesRides.add(new BarEntry(4,35));
 
 
 
