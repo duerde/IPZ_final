@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,6 +22,9 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.ipz_final.R;
 
 public class DashboardFragment extends Fragment {
+    EditText editTextNumber, editTextNumber2;
+    TextView textView, textView2;
+    String kwartal, km;
 
     private DashboardViewModel dashboardViewModel;
 
@@ -30,20 +34,24 @@ public class DashboardFragment extends Fragment {
                 new ViewModelProvider(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
         final TextView textView = root.findViewById(R.id.textView);
+        editTextNumber = root.findViewById(R.id.editTextNumber);
+        editTextNumber2 = root.findViewById(R.id.editTextNumber2);
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
-            @Override
-            public void change(View view) {
-                EditText et = (EditText)findViewById(R.id.editTextTextPersonName2);
-                EditText et1 = (EditText)findViewById(R.id.editTextTextPersonName3);
-                String texxt = et1.getText().toString();
-                Editable numberr = et.getText();
-            }
 
         });
+
+        final Button button = root.findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                kwartal = editTextNumber.getText().toString();
+                km = editTextNumber2.getText().toString();
+                String data[] = {km, kwartal};
+            }
+        }
 
 
         return root;
