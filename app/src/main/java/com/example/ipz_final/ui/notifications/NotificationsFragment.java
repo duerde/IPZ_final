@@ -36,7 +36,6 @@ public class NotificationsFragment extends Fragment {
     BarDataSet barDataSetEko;
     BarDataSet barDataSetKm;
     ArrayList barEntriesRides;
-    ArrayList barEntriesEko;
 
     private NotificationsViewModel notificationsViewModel;
 
@@ -58,8 +57,7 @@ public class NotificationsFragment extends Fragment {
         */
 
         //preparing data
-        SetDataKm();
-        SetDataEko();
+        SetData();
         ArrayList<String> labels= new ArrayList<String>();
         labels.add("I");
         labels.add("II");
@@ -79,7 +77,7 @@ public class NotificationsFragment extends Fragment {
 
         //barChart Eko
         barChartEko=root.findViewById(R.id.BarChart2);
-        barDataSetEko = new BarDataSet(barEntriesEko, "labels");
+        barDataSetEko = new BarDataSet(barEntriesRides, "labels");
         barDataEko = new BarData(barDataSetEko);
         barDataSetEko.setColors(ColorTemplate.PASTEL_COLORS);
         barDataSetEko.setValueTextColor(Color.BLACK);
@@ -90,18 +88,16 @@ public class NotificationsFragment extends Fragment {
         return root;
     }
 
-    private void SetDataKm(){
+    private void SetData(){
         barEntriesRides = new ArrayList<>();
-        barEntriesRides.add(new BarEntry(1,50));
-        barEntriesRides.add(new BarEntry(2,100));
-        barEntriesRides.add(new BarEntry(3,250));
-        barEntriesRides.add(new BarEntry(4,30));
-    }
-    private void SetDataEko(){
-        barEntriesEko = new ArrayList<>();
-        //odwołanie do listy Karoliny
-        //odwołanie do listy Daniela
-        //pętla z obliczeniami i dodawanie entries
+        barEntriesRides.add(new BarEntry(1f,0));
+        barEntriesRides.add(new BarEntry(4f,1));
+        barEntriesRides.add(new BarEntry(7f,2));
+        barEntriesRides.add(new BarEntry(8f,3));
+
+
+
+
     }
 
 }
