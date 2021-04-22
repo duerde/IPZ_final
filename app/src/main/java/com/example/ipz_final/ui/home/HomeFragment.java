@@ -151,6 +151,8 @@ public class HomeFragment extends Fragment {
                 String paliwo = (String) spinner.getSelectedItem();
                 EditText rok = root.findViewById(R.id.picker_year);
                 String year = rok.getText().toString();
+                EditText spalanietext = root.findViewById(R.id.picker_year2);
+                float spalanie = Float.valueOf(spalanietext.getText().toString());
                 String dane[] = {marka,model,paliwo,year};
                 samochodylista.add(dane);
                 for (String i[] : samochodylista) {

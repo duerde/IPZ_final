@@ -58,6 +58,21 @@
         app:layout_constraintTop_toTopOf="@+id/picker_year"
         app:layout_constraintVertical_bias="0.38" />
 
+    <TextView
+        android:id="@+id/rok2"
+        android:layout_width="77dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="32dp"
+        android:gravity="center"
+        android:text="Spalanie"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/picker_year2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/picker_year2"
+        app:layout_constraintVertical_bias="0.0" />
+
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="245dp"
@@ -114,6 +129,20 @@
         app:layout_constraintStart_toEndOf="@+id/rok"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
         app:layout_constraintVertical_bias="0.052">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/picker_year2"
+        android:layout_width="245dp"
+        android:layout_height="50dp"
+        android:descendantFocusability="blocksDescendants"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.789"
+        app:layout_constraintStart_toEndOf="@+id/rok"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="0.223">
 
     </EditText>
 
