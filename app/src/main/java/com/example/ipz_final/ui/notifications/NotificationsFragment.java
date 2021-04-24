@@ -94,11 +94,11 @@ public class NotificationsFragment<listakm> extends Fragment {
 
     private void SetDataKm(){
         barEntriesRides = new ArrayList<>();
-        DashboardFragment df = new DashboardFragment();
-        float zm1 = df.km1;
-        float zm2 = df.km2;
-        float zm3 = df.km3;
-        float zm4 = df.km4;
+
+        float zm1 = DashboardFragment.km1;
+        float zm2 = DashboardFragment.km2;
+        float zm3 = DashboardFragment.km3;
+        float zm4 = DashboardFragment.km4;
 
 
 
