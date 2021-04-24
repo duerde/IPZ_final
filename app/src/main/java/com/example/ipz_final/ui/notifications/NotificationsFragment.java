@@ -8,9 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import com.example.ipz_final.ui.home.HomeFragment;
 import com.example.ipz_final.ui.dashboard.DashboardFragment;
@@ -21,13 +19,11 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class NotificationsFragment extends Fragment {
+public class NotificationsFragment<listakm> extends Fragment {
 
     BarChart barChartEko;
     BarChart barChartKm;
@@ -38,7 +34,13 @@ public class NotificationsFragment extends Fragment {
     ArrayList barEntriesRides;
     ArrayList barEntriesEko;
 
+
+
+
     private NotificationsViewModel notificationsViewModel;
+    public DashboardFragment listakm;
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -92,10 +94,18 @@ public class NotificationsFragment extends Fragment {
 
     private void SetDataKm(){
         barEntriesRides = new ArrayList<>();
-        barEntriesRides.add(new BarEntry(1,50));
-        barEntriesRides.add(new BarEntry(2,100));
-        barEntriesRides.add(new BarEntry(3,250));
-        barEntriesRides.add(new BarEntry(4,30));
+        DashboardFragment listakm;
+/*
+        barEntriesRides.add(new BarEntry(1,listakm[0]));
+        barEntriesRides.add(new BarEntry(2,listakm[1]));
+        barEntriesRides.add(new BarEntry(3,listakm[2]));
+        barEntriesRides.add(new BarEntry(4,listakm[3]);
+
+ */
+
+
+
+
     }
 
 
@@ -109,8 +119,9 @@ public class NotificationsFragment extends Fragment {
         HomeFragment paliwo;
         HomeFragment spalanie;   //czy w litrach/km ?
 
-        /*
+
         //pętla z obliczeniami i dodawanie entries
+        /*
         for(int i=0; i<4; i++){
             switch (paliwo) {
                 case "Diesel":
@@ -125,7 +136,7 @@ public class NotificationsFragment extends Fragment {
                     emisja = 0.033 * listakm[i];
             }
             barEntriesEko.add(new BarEntry(i+1, emisja));
-         */
+*/
         }
 
     }
