@@ -30,6 +30,11 @@ public class DashboardFragment extends Fragment {
     String kwartal, km;
     //List listakm = new ArrayList(4);
     Float[] listakm = new Float[4];
+    public float km1;
+    public float km2;
+    public float km3;
+    public float km4;
+
     private DashboardViewModel dashboardViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -55,13 +60,13 @@ public class DashboardFragment extends Fragment {
                 km = editTextNumber2.getText().toString();
                 float kmValue = Float.parseFloat(km);
                 if(kwartal == "1") {
-                     listakm[0] += kmValue;
+                     km1+= kmValue;
                 } else if (kwartal == "2") {
-                    listakm[1] += kmValue;
+                    km2 += kmValue;
                 } else if (kwartal == "3") {
-                    listakm[2] += kmValue;
+                    km3 += kmValue;
                 } else if (kwartal == "4") {
-                    listakm[3] += kmValue;
+                    km4 += kmValue;
                 }
             }
         });

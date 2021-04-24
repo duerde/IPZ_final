@@ -94,14 +94,20 @@ public class NotificationsFragment<listakm> extends Fragment {
 
     private void SetDataKm(){
         barEntriesRides = new ArrayList<>();
-        DashboardFragment listakm;
-/*
-        barEntriesRides.add(new BarEntry(1,listakm[0]));
-        barEntriesRides.add(new BarEntry(2,listakm[1]));
-        barEntriesRides.add(new BarEntry(3,listakm[2]));
-        barEntriesRides.add(new BarEntry(4,listakm[3]);
+        DashboardFragment df = new DashboardFragment();
+        float zm1 = df.km1;
+        float zm2 = df.km2;
+        float zm3 = df.km3;
+        float zm4 = df.km4;
 
- */
+
+
+        barEntriesRides.add(new BarEntry(1f,zm1));
+        barEntriesRides.add(new BarEntry(2f,zm2));
+        barEntriesRides.add(new BarEntry(3f,zm3));
+        barEntriesRides.add(new BarEntry(4f,zm4));
+
+
 
 
 
@@ -125,13 +131,13 @@ public class NotificationsFragment<listakm> extends Fragment {
         for(int i=0; i<4; i++){
             switch (paliwo) {
                 case "Diesel":
-                    emisja = spalanie * 2.6 * listakm[i];
+                    emisja = spalanie * 2.6f * listakm[i];
                 case "Gaz":
-                    emisja = spalanie * 1.7 * listakm[i];
+                    emisja = spalanie * 1.7f * listakm[i];
                 case "Benzyna":
-                    emisja = spalanie * 2.35 * listakm[i];
+                    emisja = spalanie * 2.35f * listakm[i];
                 case "Hybryda":
-                    emisja = 0.142 * listakm[i];
+                    emisja = 0.142f * listakm[i];
                 case "Elektyczny":
                     emisja = 0.033 * listakm[i];
             }

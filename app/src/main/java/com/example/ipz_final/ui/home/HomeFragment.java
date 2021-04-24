@@ -39,6 +39,8 @@ import static com.example.ipz_final.DatabaseHelper.TABLE_NAME;
 
 public class HomeFragment extends Fragment {
     private DBManager dbManager;
+    public String paliwo;
+    public float spalanie;
     Context thiscontext;
     private HomeViewModel homeViewModel;
     ArrayList<String[ ] > samochodylista = new ArrayList<String[ ] >();
