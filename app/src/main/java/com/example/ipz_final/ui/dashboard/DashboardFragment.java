@@ -28,10 +28,8 @@ public class DashboardFragment extends Fragment {
     EditText editTextNumber, editTextNumber2;
     TextView textView, textView2;
     String kwartal, km;
-    //List listakm = new ArrayList(4);
-    Float[] listakm = new Float[4];
-    public static float km1=0;
-    public static float km2=0;
+    public static float km1 =0f;
+    public static float km2 =0;
     public static float km3=0;
     public static float km4=0;
 
@@ -57,16 +55,22 @@ public class DashboardFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 kwartal = editTextNumber.getText().toString();
+                System.out.println("KWartał:   " +kwartal);
                 km = editTextNumber2.getText().toString();
-                float kmValue = Float.parseFloat(km);
+                float kmValue = Float.valueOf(km);
+                System.out.println("@"+kmValue);
                 if(kwartal.equals("1")) {
                      km1+= kmValue;
+                    System.out.println(km1);
                 } else if (kwartal.equals("2")) {
                     km2 += kmValue;
                 } else if (kwartal.equals("3")) {
                     km3 += kmValue;
                 } else if (kwartal.equals("4")) {
                     km4 += kmValue;
+                }
+                else{
+                    System.out.println("BRAK");
                 }
             }
         });

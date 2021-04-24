@@ -77,7 +77,6 @@ public class NotificationsFragment<listakm> extends Fragment {
         barDataSetKm.setValueTextSize(12f);
         barDataKm = new BarData(barDataSetKm);
         barChartKm.setData(barDataKm);
-        barChartKm.animateY(5000);
 
         //barChart Eko
         barChartEko=root.findViewById(R.id.BarChart2);
@@ -87,47 +86,35 @@ public class NotificationsFragment<listakm> extends Fragment {
         barDataSetEko.setValueTextColor(Color.BLACK);
         barDataSetEko.setValueTextSize(12f);
         barChartEko.setData(barDataEko);
-        barChartEko.animateY(5000);
 
         return root;
     }
 
     private void SetDataKm(){
         barEntriesRides = new ArrayList<>();
-
         float zm1 = DashboardFragment.km1;
         float zm2 = DashboardFragment.km2;
         float zm3 = DashboardFragment.km3;
         float zm4 = DashboardFragment.km4;
-
-
-
-        barEntriesRides.add(new BarEntry(1f,zm1));
-        barEntriesRides.add(new BarEntry(2f,zm2));
-        barEntriesRides.add(new BarEntry(3f,zm3));
-        barEntriesRides.add(new BarEntry(4f,zm4));
-
-
-
-
-
-
+        barEntriesRides.add(new BarEntry(1,zm1));
+        barEntriesRides.add(new BarEntry(2,zm2));
+        barEntriesRides.add(new BarEntry(3,zm3));
+        barEntriesRides.add(new BarEntry(4,zm4));
     }
 
 
     private void SetDataEko(){
         barEntriesEko = new ArrayList<>();
-        float emisja;
+        float emisja = 0f;
 
-        //odwołanie do listy Karoliny
-        DashboardFragment listakm;
-        //odwołanie do listy Daniela
-        HomeFragment paliwo;
-        HomeFragment spalanie;   //czy w litrach/km ?
-
-
-        //pętla z obliczeniami i dodawanie entries
-        /*
+        float zm1 = DashboardFragment.km1;
+        float zm2 = DashboardFragment.km2;
+        float zm3 = DashboardFragment.km3;
+        float zm4 = DashboardFragment.km4;
+        String paliwo = HomeFragment.paliwo;
+        float spalanie = HomeFragment.spalanie;   //czy w litrach/km ?
+        float listakm[] = {zm1,zm2,zm3,zm4};
+        System.out.println(paliwo + spalanie + listakm.toString());
         for(int i=0; i<4; i++){
             switch (paliwo) {
                 case "Diesel":
@@ -138,12 +125,11 @@ public class NotificationsFragment<listakm> extends Fragment {
                     emisja = spalanie * 2.35f * listakm[i];
                 case "Hybryda":
                     emisja = 0.142f * listakm[i];
-                case "Elektyczny":
-                    emisja = 0.033 * listakm[i];
+                case "Elektryczny":
+                    emisja = 0.033f * listakm[i];
             }
             barEntriesEko.add(new BarEntry(i+1, emisja));
-*/
         }
 
-    }
+    }}
 

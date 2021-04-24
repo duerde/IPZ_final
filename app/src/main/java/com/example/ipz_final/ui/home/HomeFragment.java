@@ -39,8 +39,8 @@ import static com.example.ipz_final.DatabaseHelper.TABLE_NAME;
 
 public class HomeFragment extends Fragment {
     private DBManager dbManager;
-    public String paliwo;
-    public float spalanie;
+    public static String paliwo = "";
+    public static float spalanie = 0f;
     Context thiscontext;
     private HomeViewModel homeViewModel;
     ArrayList<String[ ] > samochodylista = new ArrayList<String[ ] >();
@@ -137,10 +137,10 @@ public class HomeFragment extends Fragment {
         final Button button = root.findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String marka = (String) spinnermarki.getSelectedItem();
+                String marka = (String) spinnermarki.getSelectedItem().toString();
                 EditText modeltext = root.findViewById(R.id.modeltext);
                 String model = modeltext.getText().toString();
-                String paliwo = (String) spinner.getSelectedItem();
+                paliwo = (String) spinner.getSelectedItem().toString();
                 EditText rok = root.findViewById(R.id.picker_year);
                 String year = rok.getText().toString();
                 EditText spalanietext = root.findViewById(R.id.picker_year2);
@@ -149,7 +149,7 @@ public class HomeFragment extends Fragment {
                 } catch (Exception e1) {
                     return;
                 }
-                float spalanie = Float.parseFloat(spalanietext.getText().toString());
+                spalanie = Float.parseFloat(spalanietext.getText().toString());
                 String dane[] = {marka, model, paliwo, year};
                 samochodylista.add(dane);
                 for (String i[] : samochodylista) {
